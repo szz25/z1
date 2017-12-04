@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body,
+html,
+.warp {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 0.32rem;
+}
+
+.warp {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+    flex-shrink: 0;
+    background: #00bcd4;
+    color: #fff;
+}
+
+.nav {
+    flex-shrink: 0;
+    height: 0.88rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav li {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    line-height: 0.88rem;
+}
+
+.nav li::before {
+    position: absolute;
+    content: "﹀";
+    right: 0.5rem;
+    top: 10%;
+}
+
+.main {
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #ccc;
+    padding: 0.2rem;
+}
+
+.box {
+    width: 100%;
+    background: #fff;
+    margin-top: 0.1rem;
+}
+
+dl {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+dt {
+    width: 1.8rem;
+    height: 1rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+dd {
+    width: 70%;
+}
+
+p {
+    font-size: 0.2rem;
+    margin-top: 0.1rem;
+    color: #ccc;
+}
+
+p:last-child {
+    width: 100%;
+    margin-top: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.03rem dashed #ccc;
+}
+
+p:last-child span:nth-child(1) {
+    color: #00bcd4;
+}
+
+h3 {
+    font-size: 0.3rem;
+}
