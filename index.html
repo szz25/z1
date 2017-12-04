@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telphone=no,email=no,address=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script>
+        document.documentElement.style.fontSize = (window.innerWidth / 375 * 50) + 'px';
+    </script>
+    <title>Document</title>
+    <link rel="stylesheet" ng-href="{{style}}">
+</head>
+
+<body>
+    <div class="warp" ng-controller="main">
+        <header class="header">
+            <span>公司</span>
+        </header>
+        <ul class="nav">
+            <li>融资</li>
+            <li>规模</li>
+            <li>行业</li>
+        </ul>
+        <main class="main" ng-repeat="value in data">
+            <div class="box">
+                <dl>
+                    <dt><img ng-src="{{value.img}}" alt=""></dt>
+                    <dd>
+                        <h3>{{value.head}}</h3>
+                        <p>{{value.price}}</p>
+                        <p>
+                            <span>{{value.id}} </span>
+                        </p>
+                        <p>热招: <span>{{value.zy}}</span>等{{value.num}}个职位<span>></span></p>
+                    </dd>
+                </dl>
+            </div>
+        </main>
+    </div>
+    <script src="./angular.js"></script>
+    <script>
+        angular.module('app', [])
+            .run(['$rootScope', function($rootScope) {
+                $rootScope.style = './style.css'
+            }])
+            .controller('main', ['$scope', '$http', function($scope, $http) {
+                $http({
+                        url: 'http://localhost:8080/list',
+                        method: 'POST'
+                    })
+                    .then(function(result) {
+                        $scope.data = result.data
+                    }, function(err) {
+
+                    })
+            }])
+    </script>
+</body>
+
+</html>
